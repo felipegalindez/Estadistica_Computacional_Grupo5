@@ -1,0 +1,292 @@
+---
+title: "Tarea1_Est_Comp"
+author: "Felipe Galindez"
+format: html
+editor: visual
+echo: false
+---
+
+### Letra de la Tarea 1:
+
+-   Práctico 1 (Errores y representación) (Elegir 3 ejercicios)
+
+-   Responder que es la media aritmética, geométrica, armónica (poner fuente de donde se extrajo la información) ver cuál es la más chica y cuál la más grande. Si es posible con un juego de datos a elección calcular las 3 medias
+
+Parte 1:
+
+Ejercicios del práctico 1.
+
+Ejercicio 2
+
+```{r}
+#√2-1,0110101dos, usando como √2 = 1,41421356237309
+sec2_a<-c(1)
+sec2_b<-c(0,1,1,0,1,0,1)
+n2_a<-length(sec2_a)
+n2_b<-length(sec2_b)
+resultado2_a<-0
+resultado2_b<-0
+resultado2<-0
+for(i in 1:n2_a){
+  resultado2_a <- resultado2_a + sec2_a[i]*2^(n2_a-i)
+}
+for(j in 1:n2_b){
+  resultado2_b <- resultado2_b + sec2_b[j]*2^(-j)
+}
+
+valor_num_binario_a <- resultado2_a+resultado2_b
+cat("El número binario como decimal es: ",valor_num_binario_a, "
+    ")
+cuenta_R_a <- 1.41421356237309-valor_num_binario_a
+valor_teorico_a <- sqrt(2)-valor_num_binario_a
+error_a <- abs(valor_teorico_a-cuenta_R_a)
+cat("El error en valor absoluto de la resta es: ", error_a, "
+    ")
+cat("El resultado de la resta usando el valor teórico es :", cuenta_R_a, " al operar en R con raiz de 2: ", valor_teorico_a, "
+    ")
+
+if(valor_teorico_a>cuenta_R_a){print("R redondea para abajo")} else {print("R redondea para arriba
+                                                                           ")}
+#π-11,0010010001dos, donde π = 3,141592653,58979
+sec2_a<-c(1,1)
+sec2_b<-c(0,0,1,0,0,1,0,0,0,1)
+n2_a<-length(sec2_a)
+n2_b<-length(sec2_b)
+resultado2_a<-0
+resultado2_b<-0
+resultado2<-0
+for(i in 1:n2_a){
+  resultado2_a <- resultado2_a + sec2_a[i]*2^(n2_a-i)
+}
+for(j in 1:n2_b){
+  resultado2_b <- resultado2_b + sec2_b[j]*2^(-j)
+}
+valor_num_binario_b <- resultado2_a+resultado2_b
+cat("El número binario como decimal es: ",valor_num_binario_b,"
+    ")
+cuenta_R_b <- 3.14159265358979-valor_num_binario_b
+valor_teorico_b <- pi-valor_num_binario_b
+error_b <- valor_teorico_b-cuenta_R_b
+cat("El error en valor absoluto de la resta es: ", error_b, "
+    ")
+cat("El resultado de la resta usando el valor teórico es :", cuenta_R_b, " al operar en R con pi: ", valor_teorico_b, "
+    ")
+
+if(valor_teorico_b>cuenta_R_b){print("R redondea para abajo")} else {print("R redondea para arriba")}
+
+```
+
+#Ejercicio 3
+
+```{r}
+sec2_a<-c(0)
+sec2_b<-c(0,0,1,1)
+n2_a<-length(sec2_a)
+n2_b<-length(sec2_b)
+resultado2_a<-0
+resultado2_b<-0
+resultado2<-0
+for(i in 1:n2_a){
+  resultado2_a <- resultado2_a + sec2_a[i]*2^(n2_a-i)
+}
+for(j in 1:n2_b){
+  resultado2_b <- resultado2_b + sec2_b[j]*2^(-j)
+}
+
+valor_num_binario_a <- resultado2_a+resultado2_b
+cat("El número binario como decimal es: ",valor_num_binario_a, "
+    ")
+
+valor_teorico <-1/5
+cat("El resultado de 1/5 es: ",valor_teorico,"
+    ")
+
+valor_bin2dec <-valor_num_binario_a
+error <- abs(valor_teorico-valor_bin2dec)
+cat("El error en valor absoluto es: ",error,"
+    ")
+
+#sumatoria
+binomioxsumatoria <- 0
+i<-0
+c <-3/16
+r<-1/16
+n <-1000
+
+while (i<=n) {
+  binomioxsumatoria<-binomioxsumatoria + c*r^i
+  i<-i+1
+  
+}
+cat("El resultado de la sumatoria en R es: ",binomioxsumatoria, "
+    ")
+
+#igualdad con abs(r)<1
+binomioxcondicion <- numeric(1)
+binomioxcondicion <-c/(1-r)
+cat("El resultado de la sumatoria usando la propiedad es: ",binomioxcondicion,"
+    ")
+
+#binomioxsumatoria-binomioxcondicion
+if(binomioxsumatoria==binomioxcondicion){
+  cat("El teorema fue demostrado")
+} else print("No se cumple la igualdad con: c=")
+```
+
+#Ejercicio 6
+
+```{r}
+#funcion error absoluto 
+error_abs <- function(a,b){ 
+  error<- abs(a-b) 
+  return(error) 
+  }
+#funcion error relativo
+error_rel <- function(a,b){ 
+  if(a!=0){ 
+    error<- abs(a-b)/abs(a)
+  } else error<- (-1) 
+    return(error) 
+  }
+```
+
+```{r}
+p = 0.2553074606
+x <- 1/4
+res_integral <- x + (x^3)/3 + (1/(2*1*5))*x^5 + (1/(3*2*1*7))*x^7
+
+```
+
+```{r}
+error <- abs(p-res_integral)
+print(error)
+a<-p
+b<-res_integral
+error_abs <- error_abs(a,b)
+error_rel <- error_rel(a,b)
+```
+
+```{r}
+
+cat("Los errores absoluto y relativo son respectivamente: ", error_abs, error_rel)
+
+```
+
+```{r}
+respuesta <- "a"
+tipo_error <- 
+  if(error - error_abs == 0) {
+  respuesta <- "El error es absoluto"
+} else if(error - error_rel ==0) {
+  respuesta <- "El error es relativo"
+} else respuesta <-"El error no es absoluto ni relativo"
+
+cat(tipo_error)
+```
+
+Parte 2.
+
+Definiciones:
+
+Media aritmética: se la define como el cociente entre la sumatoria de las n observaciones sobre la cantidad n. Es la medida de tendencia central más utilizada, se utilizan absolutamente todos los datos en su construcción por tanto es representativa de la distribución a la que se estudia cuándo no existen valores atípicos.
+
+Media armónica: dados n valores positivos la media armónica es la n-ésima raíz del producto de los valores. Al igual que en la media geométrica en su construcción se utilizan todos los datos, pero en ésta los valores atípicos tienen un menor efecto negativo en lo que resume esta medida. En ese sentido es más útil, pero solo se puede calcular si todos los datos son positivos y su cálculo es más complejo.
+
+Media geométrica: dados n valores positivos se define a la media geométrica como el inverso de la media aritmética pero del inverso de las observaciones. Más formalmente el cociente entre la cantidad n de observaciones sobre la sumatoria de los inversos de éstas.
+
+Por definición se cumple que:
+
+Media armónica \<= Media geométrica \<= Media aritmética
+
+Cuándo se estudia a una distribución simétrica entonces las tres medidas son iguales.
+
+```{r}
+#funcion media aritmetica
+x <- c(1,2,3)
+m_aritmetica <- function(x) {
+  arm<-numeric()
+  n <- length(x)
+  arm<-sum(x)/n
+  return(arm)
+}
+m_aritmetica(x)
+```
+
+```{r}
+#funcion media geometrica
+m_geo<- function(x){
+  armo<- numeric()
+  n<-length(x)
+  geo<- (prod(x))^(1/n) 
+  return(geo)
+}
+m_geo(x)
+```
+
+```{r}
+#funcion media armonica
+m_armonica<-function(x){
+  armo<-numeric()
+  n<-length(x)
+  armo<-n/(sum(x^-1))
+  return(armo)
+}
+m_armonica(x)
+```
+
+```{r}
+#desigualdad
+des<- function(x){
+if(m_armonica(x)<=m_geo(x) & m_geo(x)<=m_aritmetica(x)){
+  res<-("Se cumple la relación entre medidas")
+} else  res<-("NO se cumple la relación entre medidas")
+return(res)
+}
+
+des(x)
+```
+
+```{r}
+bd <- iris |> |> |> |> 
+```
+
+```{r}
+#medias por Species
+tapply(iris$Sepal.Length, iris$Species, m_aritmetica)
+tapply(iris$Sepal.Length, iris$Species, m_geo)
+tapply(iris$Sepal.Length, iris$Species, m_armonica)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+```{r}
+# Calculo de medias
+medias_df <- iris %>%
+  group_by(Species) %>%
+  summarise(
+    MA = m_aritmetica(Sepal.Length),
+    MG = m_geo(Sepal.Length),
+    MH = m_armonica(Sepal.Length)
+  )
+
+#Grafico
+ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
+  geom_density(alpha = 0.5) +
+  geom_vline(data = medias_df, aes(xintercept = MA), color = "red", linetype = "dashed", size = 0.8) +
+  geom_vline(data = medias_df, aes(xintercept = MG), color = "blue", linetype = "dotted", size = 0.8) +
+  geom_vline(data = medias_df, aes(xintercept = MH), color = "darkgreen", linetype = "twodash", size = 0.8) +
+  
+facet_wrap(~ Species) +
+  
+theme_minimal() +
+  labs(
+    title = "Distribución de Sepal.Length por Especie",
+    subtitle = "Líneas verticales: MA (Roja), MG (Azul), MH (Verde)",
+    x = "Sepal Length",
+    y = "Densidad",
+    fill = "Especie"
+  )
+```
