@@ -1,22 +1,22 @@
 ---
 title: "Tarea1_Est_Comp"
 author: "Felipe Galindez"
-format: html
+format:
+  html:
+    toc: true           
+    toc-title: "Índice"
 editor: visual
-echo: false
 ---
 
-### Letra de la Tarea 1:
+#### Letra de la Tarea 1:
 
 -   Práctico 1 (Errores y representación) (Elegir 3 ejercicios)
 
 -   Responder que es la media aritmética, geométrica, armónica (poner fuente de donde se extrajo la información) ver cuál es la más chica y cuál la más grande. Si es posible con un juego de datos a elección calcular las 3 medias
 
-Parte 1:
+#### Parte 1: Ejercicios del práctico 1.
 
-Ejercicios del práctico 1.
-
-Ejercicio 2
+##### Ejercicio 2 
 
 ```{r}
 #√2-1,0110101dos, usando como √2 = 1,41421356237309
@@ -76,7 +76,7 @@ if(valor_teorico_b>cuenta_R_b){print("R redondea para abajo")} else {print("R re
 
 ```
 
-#Ejercicio 3
+##### Ejercicio 3
 
 ```{r}
 sec2_a<-c(0)
@@ -133,7 +133,7 @@ if(binomioxsumatoria==binomioxcondicion){
 } else print("No se cumple la igualdad con: c=")
 ```
 
-#Ejercicio 6
+##### Ejercicio 6 
 
 ```{r}
 #funcion error absoluto 
@@ -184,15 +184,23 @@ tipo_error <-
 cat(tipo_error)
 ```
 
-Parte 2.
+#### Parte 2.
 
-Definiciones:
+##### Definiciones:
 
-Media aritmética: se la define como el cociente entre la sumatoria de las n observaciones sobre la cantidad n. Es la medida de tendencia central más utilizada, se utilizan absolutamente todos los datos en su construcción por tanto es representativa de la distribución a la que se estudia cuándo no existen valores atípicos.
+###### Media aritmética: 
 
-Media armónica: dados n valores positivos la media armónica es la n-ésima raíz del producto de los valores. Al igual que en la media geométrica en su construcción se utilizan todos los datos, pero en ésta los valores atípicos tienen un menor efecto negativo en lo que resume esta medida. En ese sentido es más útil, pero solo se puede calcular si todos los datos son positivos y su cálculo es más complejo.
+Se la define como el cociente entre la sumatoria de las n observaciones sobre la cantidad n. Es la medida de tendencia central más utilizada, se utilizan absolutamente todos los datos en su construcción por tanto es representativa de la distribución a la que se estudia cuándo no existen valores atípicos.
 
-Media geométrica: dados n valores positivos se define a la media geométrica como el inverso de la media aritmética pero del inverso de las observaciones. Más formalmente el cociente entre la cantidad n de observaciones sobre la sumatoria de los inversos de éstas.
+###### Media armónica: 
+
+Dados n valores positivos la media armónica es la n-ésima raíz del producto de los valores. Al igual que en la media geométrica en su construcción se utilizan todos los datos, pero en ésta los valores atípicos tienen una menor distorsión en lo que resume esta medida. En ese sentido es más útil, pero solo se puede calcular si todos los datos son positivos y su cálculo es más complejo.
+
+###### Media geométrica: 
+
+Dados n valores positivos se define a la media geométrica como el inverso de la media aritmética pero del inverso de las observaciones. Más formalmente el cociente entre la cantidad n de observaciones sobre la sumatoria de los inversos de éstas. Esta medida se utiliza generalmente cuándo se quiere calcular la media de una tasa de crecimiento.
+
+###### Relaciones entre medias.
 
 Por definición se cumple que:
 
@@ -247,7 +255,7 @@ des(x)
 ```
 
 ```{r}
-bd <- iris |> |> |> |> 
+bd <- iris
 ```
 
 ```{r}
@@ -290,3 +298,7 @@ theme_minimal() +
     fill = "Especie"
   )
 ```
+
+#### Referencias.
+
+Media aritmética simple, (Inga. Karim Paz) obtenido en Google Scholar.
