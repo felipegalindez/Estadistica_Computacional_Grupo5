@@ -2,7 +2,7 @@
 title: "Tarea1_Est_Comp"
 author: "Felipe Galindez"
 format:
-  html:
+  pdf:
     toc: true           
     toc-title: "Índice"
 editor: visual
